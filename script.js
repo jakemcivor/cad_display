@@ -25,6 +25,22 @@ document.querySelectorAll("[data-view]").forEach(button => {
 
 });
 
+
+const exposureSlider = document.getElementById("exposureSlider");
+const exposureValue = document.getElementById("exposureValue");
+
+if (exposureSlider && viewer) {
+
+    exposureSlider.addEventListener("input", () => {
+
+        const value = exposureSlider.value;
+
+        viewer.setAttribute("exposure", value);
+
+        exposureValue.textContent = value;
+    });
+}    
+
 document.getElementById("resetBtn")
     .addEventListener("click", () => {
 
@@ -37,6 +53,14 @@ document.getElementById("resetBtn")
             "field-of-view",
             "30deg"
         );
+
+        viewer.setAttribute(
+            "exposure",
+            "0.8"
+        );
+        
+        exposureSlider.value = "0.8";
+        exposureValue.textContent = "0.8";
 
         if (viewer.jumpCameraToGoal) {
             viewer.jumpCameraToGoal();
