@@ -56,11 +56,11 @@ document.getElementById("resetBtn")
 
         viewer.setAttribute(
             "exposure",
-            "0.8"
+            "0.4"
         );
         
-        exposureSlider.value = "0.8";
-        exposureValue.textContent = "0.8";
+        exposureSlider.value = "0.4";
+        exposureValue.textContent = "0.4";
 
         if (viewer.jumpCameraToGoal) {
             viewer.jumpCameraToGoal();
